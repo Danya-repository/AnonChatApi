@@ -1,0 +1,162 @@
+openapi: "3.0.0"
+info:
+  version: "0.0.1"
+  title: "Anonymous chat"
+  description: "Description API methods and endpoints for project"
+servers:
+  - url: "<here will be out URL>"
+    description: "<Here will be our identity server test API"
+components:
+  securitySchemes:
+    # See https://demo.identityserver.io/ for configuration details.
+    identity_server_auth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: "https://demo.identityserver.io/connect/authorize"
+          scopes:
+            api: "api"
+tags:
+  - name: "auth"
+    description: "Everything about your Pets"
+  - name: "user"
+    description: "Everything about your Pets"
+  - name: "profile"
+    description: "Everything about your Pets"
+  - name: "room"
+    description: "Access to Petstore orders"
+  - name: "message"
+    description: "Operations about user"
+security:
+  - identity_server_auth:
+      - api
+paths:
+  /auth/check:
+    post:
+      tags:
+        - "auth"
+  /auth/token:
+    get:
+      tags:
+        - "auth"
+  /auth/token/refresh:
+    post:
+      tags:
+        - "auth"
+  /auth/signin:
+    post:
+      tags:
+        - "auth"
+  /auth/login:
+    post:
+      tags:
+        - "auth"
+  /auth/logout:
+    post:
+      tags:
+        - "auth"
+  /user:
+    post:
+      tags:
+      - "user"
+      summary: "Create new user"
+      responses:
+        401:
+          description: "Unauthorized"
+        200:
+          description: "OK"
+    put:
+      tags:
+      - "user"
+      summary: "Create new user"
+      responses:
+        401:
+          description: "Unauthorized"
+        200:
+          description: "OK"
+    get:
+      tags:
+      - "user"
+      summary: "Return info about user"
+      responses:
+        401:
+          description: "Unauthorized"
+        200:
+          description: "OK"
+    delete:
+      tags:
+      - "user"
+      summary: "Create new user"
+      responses:
+        401:
+          description: "Unauthorized"
+        200:
+          description: "OK"
+  /profile:
+    post:
+      tags:
+      - "profile"
+      summary: "Create profile with all info"
+      responses:
+        401:
+          description: "Unauthorized"
+        200:
+          description: "OK"
+    get:
+      tags:
+      - "profile"
+      summary: "Create profile with all info"
+      responses:
+        401:
+          description: "Unauthorized"
+        200:
+          description: "OK"
+  /room:
+    post:
+      tags:
+        - "room"
+      summary: "Create room"
+      responses:
+        401:
+          description: "Unauthorized"
+        200:
+          description: "OK"
+  /room/in:
+    post:
+      tags:
+        - "room"
+      summary: "Enter in room"
+      responses:
+        401:
+          description: "Unauthorized"
+        200:
+          description: "OK"
+  /room/out:
+    post:
+      tags:
+        - "room"
+      summary: "Exit from room"
+      responses:
+        401:
+          description: "Unauthorized"
+        200:
+          description: "OK"
+  /message:
+    post:
+      tags:
+        - "message"
+      summary: "Exit from room"
+      responses:
+        401:
+          description: "Unauthorized"
+        200:
+          description: "OK"
+    get:
+      tags:
+        - "message"
+      summary: "Exit from room"
+      responses:
+        401:
+          description: "Unauthorized"
+        200:
+          description: "OK"
